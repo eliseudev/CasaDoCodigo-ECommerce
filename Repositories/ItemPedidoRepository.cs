@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace CasaDoCodigo.Repositories
 {
-    public class ItemPedidoRepository : BaseRepository<ItemPedido>
+    public interface IItemPedidoRepository
+    {
+
+    }
+    public class ItemPedidoRepository : BaseRepository<ItemPedido>, IItemPedidoRepository
     {
         public ItemPedidoRepository(ApplicationContext contexto) : base(contexto)
         {
