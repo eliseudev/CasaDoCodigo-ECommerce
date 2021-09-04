@@ -30,6 +30,8 @@ namespace CasaDoCodigo
                 options.UseSqlServer(connectionString)
             );
 
+            services.AddDistributedMemoryCache();
+            services.AddSession();
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
             services.AddTransient<IPedidoRepository, PedidoRepository>();
@@ -51,6 +53,7 @@ namespace CasaDoCodigo
             }
 
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
