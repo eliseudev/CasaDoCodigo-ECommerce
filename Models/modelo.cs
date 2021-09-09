@@ -78,12 +78,14 @@ namespace CasaDoCodigo.Models
         [Required]
         [DataMember]
         public decimal PrecoUnitario { get; private set; }
+        [DataMember]
+        public decimal Subtotal => Quantidade * PrecoUnitario;
 
         public ItemPedido()
         {
 
         }
-
+        
         public ItemPedido(Pedido pedido, Produto produto, int quantidade, decimal precoUnitario)
         {
             Pedido = pedido;
@@ -114,4 +116,5 @@ namespace CasaDoCodigo.Models
         [Required]
         public virtual Cadastro Cadastro { get; private set; }
     }
+
 }
